@@ -28,6 +28,7 @@ public class PracticalTest01Var07MainActivity extends AppCompatActivity {
     private EditText groupText = null;
     private CheckBox nameCheck = null;
     private CheckBox groupCheck = null;
+    final private static int ID = 99;
     private final String TAG = "EIM";
     private final String MY_ACTION = "ro.pub.cs.systems.eim.practicaltest01var07.intent.action.PracticalTest01Activity";
 
@@ -38,6 +39,8 @@ public class PracticalTest01Var07MainActivity extends AppCompatActivity {
         public void onClick(View view) {
 
             navButton = (Button) findViewById(R.id.nav_button);
+            String name = nameText.getText().toString();
+            String group = groupText.getText().toString();
 
             switch (view.getId()) {
                 case R.id.nav_button:
@@ -47,10 +50,10 @@ public class PracticalTest01Var07MainActivity extends AppCompatActivity {
                     Intent intent = new Intent();
                     intent.setAction(MY_ACTION);
 //                    intent.addCategory(THE_CATEGORY);
-//                    intent.putExtra(MY_ACTION+".count1", count1);
+                    intent.putExtra(MY_ACTION+".name", name);
+                    intent.putExtra(MY_ACTION+".name", group);
                     try {
-//                        startActivityForResult(intent,ID);
-                        startActivity(intent);
+                        startActivityForResult(intent,ID);
                     } catch (ActivityNotFoundException e) {
                         e.printStackTrace();
                         Log.d("TAG", "Secondary Activity not found");
@@ -121,5 +124,21 @@ public class PracticalTest01Var07MainActivity extends AppCompatActivity {
 //        Log.TAG,"onRestore first=" + savedInstanceState.getString("first") + "; second=" + savedInstanceState.getString("second"));
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        switch (requestCode) {
+            case 99:
+                if (resultCode == Activity.RESULT_OK) {
+                    //Bundle data = intent.getExtras();
+                    Toast.makeText(getApplicationContext(), "RESULT_OK", Toast.LENGTH_LONG).show();
+                } else if (resultCode == Activity.RESULT_CANCELED) {
+                    Toast.makeText(getApplicationContext(), "RESULT_CANCELED", Toast.LENGTH_LONG).show();
+
+                }
+                break;
+
+            // process other request codes
+        }
+
+    }
 
 }
