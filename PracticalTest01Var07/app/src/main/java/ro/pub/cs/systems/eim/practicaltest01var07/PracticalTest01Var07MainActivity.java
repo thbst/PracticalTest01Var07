@@ -22,7 +22,7 @@ import android.widget.Toast;
 
 
 
-public class PracticalTest01Var07MainActivity extends AppCompatActivity {
+public class PracticalTest01Var07MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
     private Button navButton = null;
     private EditText nameText = null;
     private EditText groupText = null;
@@ -63,30 +63,35 @@ public class PracticalTest01Var07MainActivity extends AppCompatActivity {
         }
     }
 
-//    private class CheckClick implements CompoundButton.OnCheckedChangeListener {
-//    @Override
-//    public void onCheckedChanged(CompoundButton buttonView) {
-//
-//        switch (buttonView.getId()) {
-//            case R.id.name_check:
-//                if (nameText.isEnabled())
-//                    nameText.setEnabled(false);
-//                else
-//                    nameText.setEnabled(true);
-//                break;
-//            case R.id.group_check:
-//                if (groupText.isEnabled())
-//                    groupText.setEnabled(false);
-//                else
-//                    groupText.setEnabled(true);
-//                break;
-//        }
-//
-//
-//    }
-//    }
 
 
+//    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+        switch (buttonView.getId()) {
+            case R.id.name_check:
+                if (nameText.isEnabled())
+                    nameText.setEnabled(false);
+                else
+                    nameText.setEnabled(true);
+                break;
+            case R.id.group_check:
+                if (groupText.isEnabled())
+                    groupText.setEnabled(false);
+                else
+                    groupText.setEnabled(true);
+                break;
+        }
+
+//        intent serviceIntent = new Intent();
+//        serviceIntent.setComponent(new ComponentName("ro.pub.cs.systems.eim.practicaltest01", "ro.pub.cs.systems.eim.practicaltest01.PracticalTest01Service"));
+//        serviceIntent.putExtra("first",count1);
+//        serviceIntent.putExtra("second",count2);
+//        startService(serviceIntent);
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,7 +102,8 @@ public class PracticalTest01Var07MainActivity extends AppCompatActivity {
         nameCheck = (CheckBox) findViewById(R.id.name_check);
         groupCheck = (CheckBox) findViewById(R.id.group_check);
         navButton.setOnClickListener(new HandleClick());
-//        nameCheck.setOnClickListener(new onCheck);
+//        nameCheck.setOnClickListener(new onCheckedChanged(nameCheck,nameCheck.isChecked()));
+//        nameCheck.setOnCheckedChangeListener(this,nameCheck.isChecked());
 
 
     }
