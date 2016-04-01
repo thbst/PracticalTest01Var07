@@ -85,11 +85,14 @@ public class PracticalTest01Var07MainActivity extends AppCompatActivity implemen
                 break;
         }
 
-//        intent serviceIntent = new Intent();
-//        serviceIntent.setComponent(new ComponentName("ro.pub.cs.systems.eim.practicaltest01", "ro.pub.cs.systems.eim.practicaltest01.PracticalTest01Service"));
-//        serviceIntent.putExtra("first",count1);
-//        serviceIntent.putExtra("second",count2);
-//        startService(serviceIntent);
+        if ((nameCheck.isChecked() == false) && (groupCheck.isChecked() == false)){
+
+            Intent serviceIntent = new Intent();
+            serviceIntent.setComponent(new ComponentName("ro.pub.cs.systems.eim.practicaltest01var07", "ro.pub.cs.systems.eim.practicaltest01var07.PracticalTest01Var07Service"));
+            serviceIntent.putExtra("name", "name");
+            serviceIntent.putExtra("group", "group");
+            startService(serviceIntent);
+        }
 
     }
     @Override
