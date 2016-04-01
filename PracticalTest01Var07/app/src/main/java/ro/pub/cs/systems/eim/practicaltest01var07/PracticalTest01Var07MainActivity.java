@@ -31,6 +31,7 @@ public class PracticalTest01Var07MainActivity extends AppCompatActivity implemen
     final private static int ID = 99;
     private final String TAG = "EIM";
     private final String MY_ACTION = "ro.pub.cs.systems.eim.practicaltest01var07.intent.action.PracticalTest01Activity";
+    private BroadcastReceiver broadcastReceiver = new PracticalTest01Var07BroadcastReceiver();
 
 
 
@@ -149,5 +150,24 @@ public class PracticalTest01Var07MainActivity extends AppCompatActivity implemen
         }
 
     }
+
+
+    @Override
+    protected void onDestroy() {
+        Intent intent = new Intent(getApplicationContext(), PracticalTest01Var07Service.class);
+        stopService(intent);
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+//        broadcastText = (TextView) findViewById(R.id.broadcast_text);
+        super.onNewIntent(intent);
+        String message = intent.getStringExtra("MyAction");
+//        if (message != null) {
+//            broadcastText.setText(broadcastText.getText().toString() + "\n" + message);
+//        }
+//    }
+}
 
 }

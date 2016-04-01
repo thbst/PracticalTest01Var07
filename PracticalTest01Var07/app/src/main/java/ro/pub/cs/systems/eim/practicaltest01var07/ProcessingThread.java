@@ -27,7 +27,7 @@ public class ProcessingThread extends Thread {
 //            int randomInt = randomGenerator.nextInt(3);
 //            switch (randomInt) {
 //                case 0:
-                    sendMessage(1);
+
 //                    break;
 //                case 1:
 //                    sendMessage(Constants.MESSAGE_STRING2);
@@ -36,7 +36,10 @@ public class ProcessingThread extends Thread {
 //                    sendMessage(Constants.MESSAGE_STRING3);
 //                    break;
 //            }
+        sendMessage(1);
             sleep();
+        sendMessage(2);
+        sleep();
 //        }
     }
 
@@ -51,23 +54,26 @@ public class ProcessingThread extends Thread {
     private void sendMessage(int messageType) {
         Intent intent = new Intent();
         Date date = new Date();
-//        switch(messageType) {
-//            case Constants.MESSAGE_STRING1:
-//                intent.setAction(Constants.ACTION_STRING1);
+        switch(messageType) {
+            case 1:
+                intent.setAction("MyAction");
+                intent.putExtra("message",this.name);
 //                intent.putExtra(Constants.DATA, "1) "+date.toString()+" ;count1="+this.aritm+";count2="+this.geom);
 //                Log.d(Constants.TAG,"Sending Action"+Constants.MESSAGE_STRING1+" : "+date.toString()+" ;count1="+this.aritm+";count2="+this.geom);
-//                break;
+                break;
 //            case Constants.MESSAGE_STRING2:
 //                intent.setAction(Constants.ACTION_STRING2);
 //                intent.putExtra(Constants.DATA, "2) "+date.toString()+" ;count1="+this.aritm+";count2="+this.geom);
 //                Log.d(Constants.TAG,"Sending Action"+Constants.MESSAGE_STRING2+" : "+date.toString()+" ;count1="+this.aritm+";count2="+this.geom);
 //                break;
-//            case Constants.MESSAGE_STRING3:
+            case 2:
+                intent.setAction("MyAction");
+                intent.putExtra("message",this.group);
 //                intent.setAction(Constants.ACTION_STRING3);
 //                intent.putExtra(Constants.DATA, "3) "+date.toString()+" ;count1="+this.aritm+";count2="+this.geom);
 //                Log.d(Constants.TAG,"Sending Action"+Constants.MESSAGE_STRING3+" : "+date.toString()+" ;count1="+this.aritm+";count2="+this.geom);
-//                break;
-//        }
+                break;
+        }
         context.sendBroadcast(intent);
     }
 
