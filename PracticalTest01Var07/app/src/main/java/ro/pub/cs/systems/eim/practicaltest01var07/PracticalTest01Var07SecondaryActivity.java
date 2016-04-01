@@ -30,6 +30,9 @@ public class PracticalTest01Var07SecondaryActivity extends AppCompatActivity {
         Intent intentFromParent = getIntent();
         String name = intentFromParent.getStringExtra(MY_ACTION+".name");
         String group = intentFromParent.getStringExtra(MY_ACTION+".group");
+
+        text1View.setText(name);
+        text2View.setText(group);
 ////        Log.d(Constants.TAG,"ImportPrimary: count1="+count1+" count2="+count2);
 //        textView.setText("clicks: first="+count1+", second="+count2);
 

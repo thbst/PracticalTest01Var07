@@ -26,10 +26,10 @@
                 android:layout_height="wrap_content" />
             <EditText
                 android:id="@+id/name_text"
-                android:enabled="false"
                 android:saveEnabled="false"
                 android:layout_width="match_parent"
                 android:hint="Perfect Student"
+                android:text="Lupu Cristian"
                 android:layout_height="wrap_content" />
         </LinearLayout>
         <LinearLayout
@@ -42,10 +42,10 @@
                 android:layout_height="wrap_content" />
             <EditText
                 android:id="@+id/group_text"
-                android:enabled="false"
                 android:saveEnabled="false"
                 android:layout_width="match_parent"
                 android:hint="342C2"
+                android:text="342C2"
                 android:layout_height="wrap_content" />
         </LinearLayout>
         <Button
