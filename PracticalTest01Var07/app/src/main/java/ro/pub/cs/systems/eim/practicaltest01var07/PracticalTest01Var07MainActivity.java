@@ -85,12 +85,12 @@ public class PracticalTest01Var07MainActivity extends AppCompatActivity implemen
                 break;
         }
 
-        if ((nameCheck.isChecked() == false) && (groupCheck.isChecked() == false)){
-
+        if ((nameCheck.isChecked() == false) && (groupCheck.isChecked() == false) && (nameText.getText().toString() != null) && (nameText.getText().toString() != null)){
+            Log.d(TAG, "Started Service");
             Intent serviceIntent = new Intent();
             serviceIntent.setComponent(new ComponentName("ro.pub.cs.systems.eim.practicaltest01var07", "ro.pub.cs.systems.eim.practicaltest01var07.PracticalTest01Var07Service"));
-            serviceIntent.putExtra("name", "name");
-            serviceIntent.putExtra("group", "group");
+            serviceIntent.putExtra("name", nameText.getText().toString());
+            serviceIntent.putExtra("group", groupText.getText().toString());
             startService(serviceIntent);
         }
 
